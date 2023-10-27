@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -141,6 +142,9 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
     val uiState by cobaViewModel.uiState.collectAsState()
     dataForm = uiState;
 
+    Text(
+        text = "Create Your Account",
+    )
     OutlinedTextField(
         value = textNama,
         singleLine = true,
@@ -173,6 +177,8 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
     )
     Text(
         text = "Jenis Kelamin",
+        modifier = Modifier.fillMaxWidth(),
+        fontStyle = FontStyle.Normal
     )
     SelectJK(
         option = jenis.map { id -> context.resources.getString(id)},
@@ -180,6 +186,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
     )
     Text(
         text = "Status",
+        modifier = Modifier.fillMaxWidth()
     )
     SelectST(
         option = status.map { id -> context.resources.getString(id)},
@@ -211,12 +218,13 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
         teleponnya = cobaViewModel.noTlp,
         email = cobaViewModel.email,
         jenisnya = cobaViewModel.jenisKl,
+        statusnya = cobaViewModel.status,
         alamatnya = cobaViewModel.alamat
     )
 }
 
 @Composable
-fun TextHasil(namanya: String, teleponnya: String, email: String, jenisnya: String, alamatnya: String){
+fun TextHasil(namanya: String, teleponnya: String, email: String, jenisnya: String, statusnya: String, alamatnya: String){
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -230,17 +238,17 @@ fun TextHasil(namanya: String, teleponnya: String, email: String, jenisnya: Stri
                 .padding(horizontal = 10.dp, vertical = 4.dp)
         )
         Text(
-            text = "Telephone :" + teleponnya,
-            modifier = Modifier
-                .padding(horizontal = 10.dp, vertical = 5.dp)
-        )
-        Text(
             text = "Email :" + email,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
         Text(
             text = "Jenis Kelamin :" + jenisnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
+            text = "Status :" + statusnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
