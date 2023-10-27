@@ -224,7 +224,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
 }
 
 @Composable
-fun TextHasil(namanya: String, email: String, jenisnya: String, statusnya: String, alamatnya: String){
+fun TextHasil(namanya: String, teleponnya: String, email: String, jenisnya: String, statusnya: String, alamatnya: String){
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
