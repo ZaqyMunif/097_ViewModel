@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -170,12 +171,17 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
             textAlm = it
         }
     )
-
+    Text(
+        text = "Jenis Kelamin",
+    )
     SelectJK(
         option = jenis.map { id -> context.resources.getString(id)},
         onSelectionChanged = {cobaViewModel.setJenisK(it)}
     )
-    SelectJK(
+    Text(
+        text = "Status",
+    )
+    SelectST(
         option = status.map { id -> context.resources.getString(id)},
         onSelectionChanged = {cobaViewModel.setJenisK(it)}
     )
@@ -191,7 +197,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
     Button(
         modifier = Modifier.fillMaxWidth(),
         onClick = {
-            cobaViewModel.insertData(textNama,textTlp, textEml,dataForm.sex, dataForm.sex, textAlm)
+            cobaViewModel.insertData(textNama,textTlp, textEml,dataForm.sex, dataForm.status, textAlm)
         }
     ) {
         Text(
