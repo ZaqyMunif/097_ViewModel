@@ -69,7 +69,7 @@ fun SelectJK(
 ){
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
-    Row(modifier = Modifier.padding(0.dp)) {
+    Row(modifier = Modifier.fillMaxWidth()) {
         option.forEach { item ->
             Row(
                 modifier = Modifier.selectable(
@@ -102,7 +102,7 @@ fun SelectST(
 ){
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
-    Row(modifier = Modifier.padding(0.dp)) {
+    Row(modifier = Modifier.fillMaxWidth()) {
         option.forEach { item ->
             Row(
                 modifier = Modifier.selectable(
@@ -224,7 +224,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
 }
 
 @Composable
-fun TextHasil(namanya: String, teleponnya: String, email: String, jenisnya: String, statusnya: String, alamatnya: String){
+fun TextHasil(namanya: String, email: String, jenisnya: String, statusnya: String, alamatnya: String){
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
