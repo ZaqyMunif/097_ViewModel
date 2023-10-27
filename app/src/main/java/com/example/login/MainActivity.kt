@@ -193,7 +193,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
     )
     SelectST(
         option = status.map { id -> context.resources.getString(id)},
-        onSelectionChanged = {cobaViewModel.setJenisK(it)}
+        onSelectionChanged = {cobaViewModel.status}
     )
     OutlinedTextField(value = textAlm,
         singleLine = true,
