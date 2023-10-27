@@ -147,7 +147,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
         }
     ) {
         Text(
-            text = stringResource(R.string.submit),
+            text = stringResource(R.string.register),
             fontSize = 16.sp
         )
     }
@@ -194,7 +194,7 @@ fun TextHasil(namanya: String, teleponnya: String, alamatnya: String, jenisnya: 
 
 @Composable
 fun TampilLayout(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier,
