@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.login.Data.DataForm
 import com.example.login.Data.DataSource.jenis
+import com.example.login.Data.DataSource.status
 import com.example.login.ui.theme.LoginTheme
 
 class MainActivity : ComponentActivity() {
@@ -93,6 +94,37 @@ fun SelectJK(
 }
 
 @Composable
+fun SelectST(
+    option: List<String>,
+    onSelectionChanged: (String) -> Unit = {}
+){
+    var selectedValue by rememberSaveable { mutableStateOf("") }
+
+    Row(modifier = Modifier.padding(0.dp)) {
+        option.forEach { item ->
+            Row(
+                modifier = Modifier.selectable(
+                    selected = selectedValue == item,
+                    onClick = {
+                        selectedValue = item
+                        onSelectionChanged(item)
+                    }
+                ),
+                verticalAlignment =  Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = selectedValue == item,
+                    onClick = {
+                        selectedValue = item
+                        onSelectionChanged(item)
+                    }
+                )
+                Text(item)
+            }
+
+        }
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -141,6 +173,10 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
 
     SelectJK(
         option = jenis.map { id -> context.resources.getString(id)},
+        onSelectionChanged = {cobaViewModel.setJenisK(it)}
+    )
+    SelectJK(
+        option = status.map { id -> context.resources.getString(id)},
         onSelectionChanged = {cobaViewModel.setJenisK(it)}
     )
     OutlinedTextField(value = textAlm,
