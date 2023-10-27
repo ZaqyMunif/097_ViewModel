@@ -66,7 +66,7 @@ fun SelectJK(
 ){
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Row(modifier = Modifier.padding(0.dp)) {
         option.forEach { item ->
             Row(
                 modifier = Modifier.selectable(
@@ -87,9 +87,12 @@ fun SelectJK(
                 )
                 Text(item)
             }
+
         }
     }
 }
+
+@Composable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -152,7 +155,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
     Button(
         modifier = Modifier.fillMaxWidth(),
         onClick = {
-            cobaViewModel.insertData(textNama,textTlp, textEml,dataForm.sex, textAlm)
+            cobaViewModel.insertData(textNama,textTlp, textEml,dataForm.sex, dataForm.sex, textAlm)
         }
     ) {
         Text(
