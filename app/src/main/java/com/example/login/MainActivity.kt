@@ -169,7 +169,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = CobaViewModel()) {
             textTlp = it
         }
     )
-    OutlinedTextField(value = textAlm,
+    OutlinedTextField(value = textEml,
         singleLine = true,
         shape = MaterialTheme.shapes.large,
         modifier = Modifier.fillMaxWidth(),
